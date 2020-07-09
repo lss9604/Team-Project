@@ -1,0 +1,24 @@
+-----------------member part--------------------
+create table tbl_brmember (
+//mno 사용여부? cardno를 mno대신?
+cardno number(10,0) not null,
+cardpwdno varchar2(1000),
+mname varchar2(100) not null,
+mid varchar2(100) not null,
+pwd varchar2(1000) not null,
+phone varchar2(100) not null,
+tel varchar2(100),
+homeadr varchar2(100) not null,
+workadr varchar2(100),
+shipadr varchar2(100) not null,
+job varchar2(100) not null,
+regd8 date default sysdate);
+birthd8 date,
+wedd8 date,
+auth varchar2(10) default ROLE_MEM,
+enabled number(1,0) default 1,
+failcnt number(1,0) default 0
+
+alter table tbl_brmember add constraint pk_member
+primary key(mid);
+---------------------product part--------------------
