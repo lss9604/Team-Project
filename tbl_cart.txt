@@ -1,0 +1,7 @@
+create TABLE tbl_cart(
+cno number(10) NOT NULL,
+mno number(10) NOT NULL,
+pno number(10) NOT NULL,
+psize varchar2(100),
+pamount number(10) default 1,
+);

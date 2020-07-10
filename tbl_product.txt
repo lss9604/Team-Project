@@ -1,0 +1,17 @@
+create table tbl_product (
+pno number(10,0) not null,
+pname varchar2(100) not null,
+engpname varchar2(100) not null,
+category varchar2(100) not null,
+pcontent varchar2(100) not null,
+hashtag varchar2(100),
+material varchar2(100),
+recommend varchar2(100),
+sellcnt number(10,0) default 1,
+fom number(2) default 0,
+price number(10,0),
+pimg varchar2(100) default 'NONE',
+pdetail varchar2(3000),
+regd8 date default sysdate);
+
+

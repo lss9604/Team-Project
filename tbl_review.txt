@@ -1,0 +1,7 @@
+create table tbl_review (
+pno number(10,0) not null,
+mno number(10) NOT NULL,
+rimg varchar2(1000),
+content varchar2(100) not null,
+regd8 date default sysdate,
+like number(10,0) default 0);

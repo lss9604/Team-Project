@@ -1,0 +1,8 @@
+CREATE TABLE tbl_event(
+eno number(10) NOT NULL,
+startd8 date,
+endd8 date,
+cate varchar2(100) NOT NULL,
+winner varchar2(100),
+eimg varchar2(100) default 'NONE',
+status number(10) default 1);

@@ -1,0 +1,21 @@
+create table tbl_member (
+mno number(10,0) not null,
+cardno number(10,0) not null,
+cardpwdno varchar2(1000) default '0000',
+mname varchar2(100) not null,
+mid varchar2(100) not null,
+email varchar2(100),
+pwd varchar2(1000) not null,
+phone varchar2(100) not null,
+tel varchar2(100),
+homeadr varchar2(100) not null,
+workadr varchar2(100),
+shipadr varchar2(100) not null,
+job varchar2(100) not null,
+regd8 date default sysdate);
+birthd8 date,
+wedd8 date,
+mimg varchar2(100) default 'NONE,
+auth varchar2(10) default 'ROLE_MEM',
+enabled number(1,0) default 1,
+failcnt number(1,0) default 0)
