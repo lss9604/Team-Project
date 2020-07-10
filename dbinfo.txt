@@ -1,0 +1,128 @@
+order table 추가 
+review table - rno 추가 -디테일 위해서 
+-------------------------member part------------------------
+create table tbl_member (
+mno number(10,0) not null,
+cardno number(10,0) not null,
+cardpwdno varchar2(1000) default '0000',
+mname varchar2(100) not null,
+mid varchar2(100) not null,
+email varchar2(100),
+pwd varchar2(1000) not null,
+phone varchar2(100) not null,
+tel varchar2(100),
+homeadr varchar2(100) not null,
+workadr varchar2(100),
+shipadr varchar2(100) not null,
+job varchar2(100) not null,
+regd8 date default sysdate);
+birthd8 date,
+wedd8 date,
+mimg varchar2(100) default 'NONE,
+auth varchar2(10) default 'ROLE_MEM',
+enabled number(1,0) default 1,
+failcnt number(1,0) default 0);
+
+alter table tbl_member add constraint pk_member
+primary key(mno);
+
+create sequence seq_member_mno
+start with 1
+increment by 1
+nocycle nocache;
+
+-------------------------product part------------------------
+create table tbl_product (
+pno number(10,0) not null,
+pname varchar2(100) not null,
+engpname varchar2(100) not null,
+category varchar2(100) not null,
+pcontent varchar2(100) not null,
+hashtag varchar2(100),
+material varchar2(100),
+recommend varchar2(100),
+sellcnt number(10,0) default 1,
+fom number(2) default 0,
+price number(10,0),
+pimg varchar2(100) default 'NONE',
+pdetail varchar2(3000),
+regd8 date default sysdate);
+
+
+alter table tbl_product add constraint pk_product
+primary key (pno);
+
+create sequence seq_product_pno
+start with 1
+increment by 1
+nocycle nocache;
+
+-------------------------review part------------------------
+create table tbl_review (
+rno number(10,0) NOT NULL,
+pno number(10,0) NOT NULL,
+mno number(10) NOT NULL,
+rimg varchar2(1000),
+content varchar2(100) not null,
+regd8 date default sysdate,
+like number(10,0) default 0);
+
+alter table tbl_review add constraint pk_review
+primary key (rno);
+
+alter table tbl_review
+add constraint fk_review_product
+foreign key(pno) references tbl_product(pno);
+
+create sequence seq_review_rno
+start with 1
+increment by 1
+nocycle nocache;
+-------------------------event part------------------------
+
+CREATE TABLE tbl_event(
+eno number(10) NOT NULL,
+startd8 date,
+endd8 date,
+cate varchar2(100) NOT NULL,
+eimg varchar2(100) default 'NONE',
+status number(10) default 1);
+
+alter table tbl_event add constraint pk_event
+primary key (eno);
+
+create sequence seq_review_rno
+start with 1
+increment by 1
+nocycle nocache;
+
+CREATE TABLE tbl_winner(
+eno number(10) NOT NULL,
+winner varchar2(100) NOT NULL
+);
+
+-------------------------order part------------------------
+
+create TABLE tbl_cart(
+cno number(10) NOT NULL,
+mno number(10) NOT NULL,
+pno number(10) NOT NULL,
+psize varchar2(100),
+pamount number(10) default 1
+);
+
+alter table tbl_cart add constraint pk_cart
+primary key (cno);
+
+create sequence seq_cart_cno
+start with 1
+increment by 1
+nocycle nocache;
+
+create TABLE tbl_order(
+ono number(10) NOT NULL,
+mno number(10) NOT NULL,
+content varchar2(100) NOT NULL,
+total number(10) NOT NULL,
+orderd8 date default sysdate
+);
