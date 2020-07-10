@@ -1,6 +1,0 @@
-create TABLE tbl_size(
-cate varchar2(100),
-sizename varchar2(100) not null,
-sizecontent varchar2(100) not null,
-gram number(10) not null,
-price number(10) not null);
